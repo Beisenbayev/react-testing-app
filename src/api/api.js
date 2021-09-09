@@ -6,11 +6,11 @@ const instance = axios.create({
 
 const serverAPI = {
    getUserDataRequest: (username) => {
-      instance.get(`user/${username}`)
+      return instance.get(`user/${username}`)
          .then(response => response)
    },
    signUpRequest: (data) => {
-      instance.post('user', data)
+      return instance.post('user', data)
          .then(response => response)
    }
 }
