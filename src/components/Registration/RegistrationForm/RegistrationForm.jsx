@@ -30,7 +30,7 @@ const RegistrationForm = (props) => {
          })}
          onSubmit={(values) => console.log(values)}>
          {formik =>
-            <Form className={s.form}>
+            <Form className={s.block}>
                <MyInput name={'firstName'}
                   label={'Имя'}
                   type={'text'} />

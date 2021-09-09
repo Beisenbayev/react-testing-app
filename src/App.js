@@ -4,14 +4,15 @@ import s from './App.module.css';
 
 import Home from './components/Home/Home';
 import Registration from './components/Registration/Registration';
+import Search from './components/Search/Search';
 
 const App = () => {
   return (
     <div className={s.block}>
       <Switch>
-        <Route exact path='/signup' render={() => <Registration />} />
-        <Route exact path='/search' render={() => <Home />} />
-        <Route exact path='/user' render={() => <Home />} />
+        <Route path='/signup' render={() => <Registration />} />
+        <Route path='/search' render={() => <Search />} />
+        <Route path='/user' render={() => <Home />} />
         <Route exact path='/' render={() => <Home />} />
       </Switch>
     </div>
