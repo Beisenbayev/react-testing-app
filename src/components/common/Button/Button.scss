@@ -12,6 +12,12 @@
    &:hover {
       background: lighten($color: #B12341, $amount: 10);
    }
+   &:disabled,
+   &[disabled] {
+      border: 1px solid #999999;
+      background: #cccccc;
+      color: #666666;
+}
 }
 
 @media screen and (max-width: 768px) {

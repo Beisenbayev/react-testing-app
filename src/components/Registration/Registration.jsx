@@ -1,14 +1,31 @@
 import React from 'react';
 import cn from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+   signUpThunkCreater as signUp,
+} from '../../redux/reducers/registration-reducer.js';
 import s from './Registration.module.css';
 
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 
 const Registration = (props) => {
+   const dispatch = useDispatch();
+   const successMessage = useSelector((state) => state.registration.successMessage);
+   const isSubmitting = useSelector((state) => state.registration.isSubmitting);
+
+   const onSubmit = (data) => {
+      dispatch(signUp(data));
+   }
+
    return (
       <div className={s.block}>
          <h1 className={cn('main-title')}>Регистрация</h1>
-         <RegistrationForm />
+         <RegistrationForm submit={onSubmit}
+            isSubmitting={isSubmitting} />
+         {successMessage &&
+            <p className={s.message}>{successMessage}</p>
+         }
+
       </div>
    );
 }

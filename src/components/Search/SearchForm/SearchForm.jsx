@@ -10,7 +10,7 @@ const SearchForm = (props) => {
    return (
       <Formik initialValues={{ term: '' }}
          onSubmit={({ term }, { setSubmitting }) => {
-            console.log(term);
+            props.search(term);
             setSubmitting(false);
          }}>
          {formik =>
@@ -18,11 +18,9 @@ const SearchForm = (props) => {
                <MyInput name={'term'}
                   label={'Введите логин'}
                   type={'text'} />
-               <NavLink to={'/user'}>
-                  <Button type={'submit'}
-                     text={'Поиск'}
-                     disabled={formik.isSubmitting} />
-               </NavLink>
+               <Button type={'submit'}
+                  text={'Поиск'}
+                  disabled={formik.isSubmitting} />
             </Form>
          }
       </Formik>

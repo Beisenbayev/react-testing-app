@@ -28,35 +28,36 @@ const RegistrationForm = (props) => {
             userStatus: Yup.string().required('required field!')
                .length(1, 'only 1 number in range [1-5]'),
          })}
-         onSubmit={(values) => console.log(values)}>
-         {formik =>
-            <Form className={s.block}>
-               <MyInput name={'firstName'}
-                  label={'Имя'}
-                  type={'text'} />
-               <MyInput name={'lastName'}
-                  label={'Фамилия'}
-                  type={'text'} />
-               <MyInput name={'username'}
-                  label={'Логин'}
-                  type={'text'} />
-               <MyInput name={'email'}
-                  label={'Электронная почта'}
-                  type={'email'} />
-               <MyInput name={'password'}
-                  label={'Пароль'}
-                  type={'password'} />
-               <MyInput name={'phone'}
-                  label={'Номер телефона'}
-                  type={'number'} />
-               <MyInput name={'userStatus'}
-                  label={'Статус'}
-                  type={'number'}/>
-               <Button type={'submit'}
-                  text={'Регистрация'}
-                  disabled={formik.isSubmitting} />
-            </Form>
-         }
+         onSubmit={(values, { setSubmitting }) => {
+            props.submit(values);
+            setSubmitting(false);
+         }}>
+         <Form className={s.block}>
+            <MyInput name={'firstName'}
+               label={'Имя'}
+               type={'text'} />
+            <MyInput name={'lastName'}
+               label={'Фамилия'}
+               type={'text'} />
+            <MyInput name={'username'}
+               label={'Логин'}
+               type={'text'} />
+            <MyInput name={'email'}
+               label={'Электронная почта'}
+               type={'email'} />
+            <MyInput name={'password'}
+               label={'Пароль'}
+               type={'password'} />
+            <MyInput name={'phone'}
+               label={'Номер телефона'}
+               type={'number'} />
+            <MyInput name={'userStatus'}
+               label={'Статус'}
+               type={'number'} />
+            <Button type={'submit'}
+               text={'Регистрация'}
+               disabled={props.isSubmitting} />
+         </Form>
       </Formik>
    );
 }

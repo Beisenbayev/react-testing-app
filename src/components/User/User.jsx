@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import s from './User.module.css';
 
@@ -7,6 +8,9 @@ import UserDataLine from './UserDataLine/UserDataLine';
 import Button from '../common/Button/Button';
 
 const User = (props) => {
+   const mainUserdata = useSelector((state) => state.userPage.data);
+   console.log('USER', mainUserdata);
+
    const userObj = {
       username: 'kaka',
       firstName: 'papa',
@@ -25,8 +29,8 @@ const User = (props) => {
       phone: 'Номер телефона'
    };
 
-   const userData = Object.keys(userObj).map(data => {
-      return <UserDataLine
+   const userData = Object.keys(userObj).map((data, index) => {
+      return <UserDataLine key={index}
          title={userDataTitles[data]}
          text={userObj[data]} />
    })

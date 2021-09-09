@@ -10,8 +10,9 @@ const serverAPI = {
          .then(response => response)
    },
    signUpRequest: (data) => {
-      return instance.post('user', data)
-         .then(response => response)
+      const body = { id: 0, ...data };
+      return instance.post('user', { body })
+         .then(response => response.data)
    }
 }
 

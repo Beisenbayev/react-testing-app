@@ -1,7 +1,6 @@
 import serverAPI from '../../api/api.js';
 
 const userReducerId = 'sign-up/userReducer';
-const SIGN_UP = `${userReducerId}/SIGN_UP`;
 const SET_USER_DATA = `${userReducerId}/SET_USER_DATA`;
 
 const initialState = {
@@ -10,7 +9,7 @@ const initialState = {
 }
 
 const userReducer = (state = initialState, action) => {
-   switch (action) {
+   switch (action.type) {
       case SET_USER_DATA: {
          return { ...state, data: action.data };
       }
@@ -20,17 +19,9 @@ const userReducer = (state = initialState, action) => {
 
 const setUserDataAC = (data) => ({type: SET_USER_DATA, data});
 
-export const signUpThunkCreater = (data) => {
-   return async (dispatch) => {
-      const response = await serverAPI.signUpRequest(data);
-      console.log(response);
-   }
-}
-
 export const setUserDataThunkCreater = (username) => {
    return async (dispatch) => {
       const response = await serverAPI.getUserDataRequest(username);
-      console.log(response);
    }
 }
 
