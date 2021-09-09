@@ -1,0 +1,22 @@
+.block {
+  width: 255px;
+  height: 60px;
+  border-radius: 10px;
+  font-family: 'Arial';
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  background: #B12341;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.block:hover {
+  background: #d63154;
+}
+
+@media screen and (max-width: 768px) {
+  .block {
+    width: 100%;
+  }
+}

@@ -5,13 +5,12 @@
 	box-sizing: border-box;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  line-height: 1;
-	-moz-user-select: none;
-  	-khtml-user-select: none;
-  	-webkit-user-select: none;
+	font-family: 'Arial';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 24px;
+	line-height: 120%;
+	background: #fff;
   	user-select: none;
 }
 a { text-decoration: none; }
