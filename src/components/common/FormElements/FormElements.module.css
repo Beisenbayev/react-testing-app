@@ -1,0 +1,39 @@
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  line-height: 1;
+  color: #BDBDBD;
+}
+
+.label::first-letter {
+  text-transform: uppercase;
+}
+
+.input {
+  border: 1px solid #EDEDED;
+  border-radius: 10px;
+  width: 325px;
+  height: 60px;
+  padding: 10px;
+  font-size: 18px;
+  background: #FFFFFF;
+  color: #303030;
+}
+
+.input.hasError {
+  border: 1px solid #ac5454;
+}
+
+.errorMessage {
+  display: inline-block;
+  padding: 0 0 0 10px;
+  font-size: 16px;
+  color: #ac5454;
+}
+
+@media screen and (max-width: 768px) {
+  .input {
+    width: 100%;
+  }
+}

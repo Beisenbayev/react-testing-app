@@ -5,19 +5,10 @@
    align-items: center;
    max-width: 1080px;
    margin: 0 auto;
-   padding: 0 10px;
 }
 
 .content {
    grid-area: content;
-
-   h1 {
-      font-weight: 800;
-      font-size: 36px;
-      line-height: 43.2px;
-      letter-spacing: -0.025em;
-      color: #000;
-   }
 
    p {
       max-width: 450px;
@@ -49,10 +40,6 @@
    }
 
    .content {
-      h1 {
-         line-height: 120%;
-      }
-      
       p {
          max-width: none;
       }
@@ -65,10 +52,6 @@
 
 @media screen and (max-width: 768px) {
    .content {
-      h1 {
-         font-size: 24px;
-      }
-   
       p {
          font-size: 18px;
       }

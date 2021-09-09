@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { NavLink } from 'react-router-dom';
 import s from './Home.module.css';
 
@@ -9,7 +10,7 @@ const Home = (props) => {
    return (
       <div className={s.block}>
             <div className={s.content}>
-               <h1>Тестовое задание для Front-end Junior разработчика</h1>
+               <h1 className={cn('main-title')}>Тестовое задание для Front-end Junior разработчика</h1>
                <p>Реши задачу и устройся на работу в компанию KMF</p>
                <div className={s.buttons}>
                   <NavLink to={'/signup'}>

@@ -9,21 +9,12 @@
           align-items: center;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 10px;
 }
 
 .content {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: content;
-}
-
-.content h1 {
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 43.2px;
-  letter-spacing: -0.025em;
-  color: #000;
 }
 
 .content p {
@@ -57,18 +48,12 @@
         -ms-flex-align: center;
             align-items: center;
   }
-  .content h1 {
-    line-height: 120%;
-  }
   .content p {
     max-width: none;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .content h1 {
-    font-size: 24px;
-  }
   .content p {
     font-size: 18px;
   }
