@@ -16,27 +16,11 @@ const User = (props) => {
    const { username } = useParams();
    const dispatch = useDispatch();
 
-   //if server API is correct 
-   //const mainUserdata = useSelector((state) => state.userPage.data);
-   //const errorMessage = useSelector((state) => state.userPage.errorMessage);
+   const mainUserdata = useSelector((state) => state.userPage.data);
 
    useEffect(() => {
       dispatch(setUserData(username));
    }, [username]);
-
-   //temporary object for checking
-   const mainUserdata = {
-      id: 0,
-      username: 'snzhxone',
-      firstName: 'Санжар',
-      lastName: 'Икембаев',
-      email: 'snzhxone@pochta.kz',
-      password: 'qwerty123ASD',
-      phone: '+7 707 707 70 70',
-      status: 2,
-   }
-
-   const { id, status, ...userObj } = mainUserdata;
 
    const userDataTitles = {
       firstName: 'Имя',
@@ -47,28 +31,21 @@ const User = (props) => {
       phone: 'Номер телефона'
    };
 
-   const userData = Object.keys(userDataTitles).map((title, index) => {
+   const userData = mainUserdata ? Object.keys(userDataTitles).map((title, index) => {
       return <UserDataLine key={index}
          title={userDataTitles[title]}
-         text={userObj[title]} />
-   })
+         text={mainUserdata[title]} />
+   }) : undefined;
 
    return (
       <div className={s.block}>
          <h1 className={cn(s.title, 'main-title')}>Поиск данных</h1>
-         
-         
-         {/* {mainUserdata ?
+         {userData ?
             <div className={s.userData}>
                {userData}
             </div> :
-            <p className={s.errorText}>{errorMeesage}</p>
-         }*/} {/*after correcting api */}
-
-
-         <div className={s.userData}>
-            {userData}
-         </div>
+            <p className={s.errorText}>user not found</p>
+         }
          <NavLink to={'/'}>
             <Button text={'На главную'} />
          </NavLink>
