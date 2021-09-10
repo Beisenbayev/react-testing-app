@@ -37,5 +37,10 @@ export const signUpThunkCreater = (data) => {
    }
 }
 
+export const resetSuccessMessage = () => {
+   return (dispatch) => {
+      dispatch(setSuccessMessageAC(null));
+   }
+}
 
 export default registrationReducer;

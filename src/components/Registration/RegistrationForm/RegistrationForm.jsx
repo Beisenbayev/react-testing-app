@@ -28,9 +28,10 @@ const RegistrationForm = (props) => {
             userStatus: Yup.string().required('required field!')
                .length(1, 'only 1 number in range [1-5]'),
          })}
-         onSubmit={(values, { setSubmitting }) => {
+         onSubmit={(values, { setSubmitting, resetForm }) => {
             props.submit(values);
             setSubmitting(false);
+            resetForm();
          }}>
          <Form className={s.block}>
             <MyInput name={'firstName'}

@@ -1,8 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
    signUpThunkCreater as signUp,
+   resetSuccessMessage
 } from '../../redux/reducers/registration-reducer.js';
 import s from './Registration.module.css';
 
@@ -12,6 +14,10 @@ const Registration = (props) => {
    const dispatch = useDispatch();
    const successMessage = useSelector((state) => state.registration.successMessage);
    const isSubmitting = useSelector((state) => state.registration.isSubmitting);
+
+   useEffect(() => {
+      dispatch(resetSuccessMessage());
+   }, [])
 
    const onSubmit = (data) => {
       dispatch(signUp(data));
