@@ -8,6 +8,7 @@ const serverAPI = {
    getUserDataRequest: (username) => {
       return instance.get(`user/${username}`)
          .then(response => response)
+         .catch(error => error);
    },
    signUpRequest: (data) => {
       const body = { id: 0, ...data };
