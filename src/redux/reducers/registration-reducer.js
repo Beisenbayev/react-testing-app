@@ -28,16 +28,12 @@ export const signUpThunkCreater = (data) => {
    return async (dispatch) => {
       dispatch(toggleIsSubmittingAC(true));
       const response = await serverAPI.signUpRequest(data);
+      dispatch(setSuccessMessageAC(`User [${response.name}] with id [${response.id}] was created successfully!`))
       dispatch(toggleIsSubmittingAC(false));
-      if (response.code === 200) {
-         dispatch(setSuccessMessageAC('Registration completed successfully'));
-      } else {
-         dispatch(setSuccessMessageAC(response.message));
-      }
    }
 }
 
-export const resetSuccessMessage = () => {
+export const resetSuccessMessageThunkCreater = () => {
    return (dispatch) => {
       dispatch(setSuccessMessageAC(null));
    }

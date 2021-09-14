@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
    signUpThunkCreater as signUp,
-   resetSuccessMessage
+   resetSuccessMessageThunkCreater as resetSuccessMessage
 } from '../../redux/reducers/registration-reducer.js';
 import s from './Registration.module.css';
 
@@ -17,7 +17,7 @@ const Registration = (props) => {
 
    useEffect(() => {
       dispatch(resetSuccessMessage());
-   }, [])
+   }, []);
 
    const onSubmit = (data) => {
       dispatch(signUp(data));

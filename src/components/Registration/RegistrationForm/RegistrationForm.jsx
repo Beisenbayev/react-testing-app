@@ -9,24 +9,15 @@ import Button from '../../common/Button/Button';
 const RegistrationForm = (props) => {
    return (
       <Formik initialValues={{
-         firstName: '',
-         lastName: '',
-         username: '',
-         email: '',
-         password: '',
-         phone: '',
-         userStatus: '',
+         name: '',
+         job: '',
       }}
          validationSchema={Yup.object({
-            firstName: Yup.string().required('required field!'),
-            lastName: Yup.string().required('required field!'),
-            username: Yup.string().required('required field!'),
-            email: Yup.string().required('required field!'),
-            password: Yup.string().required('required field!'),
-            phone: Yup.string().required('required field!')
-               .length(11, 'incorrect phone number'),
-            userStatus: Yup.string().required('required field!')
-               .length(1, 'only 1 number in range [1-5]'),
+            name: Yup.string().required('required field!')
+               .max(30, 'must be 30 characters or less!'),
+            job: Yup.string().required('required field!')
+               .max(30, 'must be 30 characters or less!')
+               .min(2, 'must be 2 characters or more!'),
          })}
          onSubmit={(values, { setSubmitting, resetForm }) => {
             props.submit(values);
@@ -34,27 +25,12 @@ const RegistrationForm = (props) => {
             resetForm();
          }}>
          <Form className={s.block}>
-            <MyInput name={'firstName'}
+            <MyInput name={'name'}
                label={'Имя'}
                type={'text'} />
-            <MyInput name={'lastName'}
-               label={'Фамилия'}
+            <MyInput name={'job'}
+               label={'Работа'}
                type={'text'} />
-            <MyInput name={'username'}
-               label={'Логин'}
-               type={'text'} />
-            <MyInput name={'email'}
-               label={'Электронная почта'}
-               type={'email'} />
-            <MyInput name={'password'}
-               label={'Пароль'}
-               type={'password'} />
-            <MyInput name={'phone'}
-               label={'Номер телефона'}
-               type={'number'} />
-            <MyInput name={'userStatus'}
-               label={'Статус'}
-               type={'number'} />
             <Button type={'submit'}
                text={'Регистрация'}
                disabled={props.isSubmitting} />
