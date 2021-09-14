@@ -1,6 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
+   getSuccessMessageSelector,
+   getIsSubmittingSelector
+} from '../../redux/selectors/registration-selector.js';
+import {
    signUpThunkCreater as signUp,
    resetSuccessMessageThunkCreater as resetSuccessMessage
 } from '../../redux/reducers/registration-reducer.js';
@@ -11,8 +15,8 @@ import RegistrationForm from './RegistrationForm/RegistrationForm';
 
 const Registration = (props) => {
    const dispatch = useDispatch();
-   const successMessage = useSelector((state) => state.registration.successMessage);
-   const isSubmitting = useSelector((state) => state.registration.isSubmitting);
+   const successMessage = useSelector(state => getSuccessMessageSelector(state));
+   const isSubmitting = useSelector(state => getIsSubmittingSelector(state));
 
    useEffect(() => {
       dispatch(resetSuccessMessage());

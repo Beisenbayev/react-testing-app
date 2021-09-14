@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
+   getUserDataSelector,
+   getIsFetchingSelector
+} from '../../redux/selectors/user-selector.js';
+import {
    setUserDataThunkCreater as setUserData,
 } from '../../redux/reducers/user-reducer.js';
 import cn from 'classnames';
@@ -13,8 +17,8 @@ import UserDataLine from './UserDataLine/UserDataLine';
 
 const User = (props) => {
    const dispatch = useDispatch();
-   const isFetching = useSelector(state => state.userPage.isFetching);
-   const userDataObj = useSelector((state) => state.userPage.data);
+   const userDataObj = useSelector(state => getUserDataSelector(state));
+   const isFetching = useSelector(state => getIsFetchingSelector(state));
 
    const { userId } = useParams();
 
