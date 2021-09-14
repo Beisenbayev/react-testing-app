@@ -2,9 +2,10 @@ import serverAPI from '../../api/api.js';
 
 const userReducerId = 'sign-up/userReducer';
 const SET_USER_DATA = `${userReducerId}/SET_USER_DATA`;
+const TOGGLE_IS_FETCHING = `${userReducerId}/TOGGLE_IS_FETCHING`;
 
 const initialState = {
-   data: undefined,
+   data: {},
    isFetching: true,
 }
 
@@ -13,18 +14,22 @@ const userReducer = (state = initialState, action) => {
       case SET_USER_DATA: {
          return { ...state, data: action.data };
       }
+      case TOGGLE_IS_FETCHING: {
+         return { ...state, isFetching: action.isFetching };
+      }
       default: return state;
    }
 }
 
 const setUserDataAC = (data) => ({ type: SET_USER_DATA, data });
+const toggleIsFetchingAC = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
-export const setUserDataThunkCreater = (username) => {
+export const setUserDataThunkCreater = (userId) => {
    return async (dispatch) => {
-      const response = await serverAPI.getUserDataRequest(username);
-      if (response.code === 200) {
-         dispatch(setUserDataAC(response.data));
-      } 
+      dispatch(toggleIsFetchingAC(true));
+      const response = await serverAPI.getUserDataRequest(userId);
+      dispatch(setUserDataAC(response.data));
+      dispatch(toggleIsFetchingAC(false));
    }
 }
 

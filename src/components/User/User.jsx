@@ -9,33 +9,35 @@ import {
 } from '../../redux/reducers/user-reducer.js';
 import s from './User.module.css';
 
-import UserDataLine from './UserDataLine/UserDataLine';
+import Preloader from '../common/Preloader/Preloader';
 import Button from '../common/Button/Button';
+import UserDataLine from './UserDataLine/UserDataLine';
 
 const User = (props) => {
-   const { username } = useParams();
    const dispatch = useDispatch();
+   const isFetching = useSelector(state => state.userPage.isFetching);
+   const userDataObj = useSelector((state) => state.userPage.data);
 
-   const mainUserdata = useSelector((state) => state.userPage.data);
+   const { userId } = useParams();
 
    useEffect(() => {
-      dispatch(setUserData(username));
-   }, [username]);
+      dispatch(setUserData(userId));
+   }, [userId]);
 
    const userDataTitles = {
-      firstName: 'Имя',
-      lastName: 'Фамиля',
-      username: 'Логин',
+      first_name: 'Имя',
+      last_name: 'Фамиля',
+      id: 'Идентификатор',
       email: 'Почта',
-      password: 'Пароль',
-      phone: 'Номер телефона'
    };
 
-   const userData = mainUserdata ? Object.keys(userDataTitles).map((title, index) => {
+   const userData = userDataObj ? Object.keys(userDataTitles).map((title, index) => {
       return <UserDataLine key={index}
          title={userDataTitles[title]}
-         text={mainUserdata[title]} />
+         text={userDataObj[title]} />
    }) : undefined;
+
+   if (isFetching) return <Preloader />
 
    return (
       <div className={s.block}>

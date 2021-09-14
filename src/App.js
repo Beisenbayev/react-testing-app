@@ -13,7 +13,7 @@ const App = () => {
       <Switch>
         <Route path='/signup' render={() => <Registration />} />
         <Route path='/search' render={() => <Search />} />
-        <Route path='/user/:username?' render={() => <User />} />
+        <Route path='/user/:userId?' render={() => <User />} />
         <Route exact path='/' render={() => <Home />} />
       </Switch>
     </div>

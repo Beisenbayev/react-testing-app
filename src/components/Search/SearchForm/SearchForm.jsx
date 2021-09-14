@@ -17,7 +17,7 @@ const SearchForm = (props) => {
          {formik =>
             <Form className={s.block}>
                <MyInput name={'term'}
-                  label={'Введите логин'}
+                  label={'Введите id'}
                   type={'text'} />
                <Button type={'submit'}
                   text={'Поиск'}
