@@ -1,4 +1,4 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
 import ThunkMiddleware from "redux-thunk";
 
 import userReducer from './reducers/user-reducer.js';
@@ -14,4 +14,3 @@ document.store = store;
 
 
 export default store;
-

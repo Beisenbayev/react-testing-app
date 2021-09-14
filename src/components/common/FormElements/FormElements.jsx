@@ -1,6 +1,6 @@
 import React from 'react';
-import cn from 'classnames';
 import { useField } from 'formik';
+import cn from 'classnames';
 import s from './FormElements.module.css';
 
 export const MyInput = ({ label, ...props }) => {

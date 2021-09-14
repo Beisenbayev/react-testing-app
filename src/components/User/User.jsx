@@ -1,12 +1,10 @@
-import React from 'react';
-import cn from 'classnames';
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import {
    setUserDataThunkCreater as setUserData,
 } from '../../redux/reducers/user-reducer.js';
+import cn from 'classnames';
 import s from './User.module.css';
 
 import Preloader from '../common/Preloader/Preloader';

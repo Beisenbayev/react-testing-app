@@ -39,4 +39,5 @@ export const resetSuccessMessageThunkCreater = () => {
    }
 }
 
+
 export default registrationReducer;

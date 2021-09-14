@@ -1,11 +1,10 @@
-import React from 'react';
-import cn from 'classnames';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
    signUpThunkCreater as signUp,
    resetSuccessMessageThunkCreater as resetSuccessMessage
 } from '../../redux/reducers/registration-reducer.js';
+import cn from 'classnames';
 import s from './Registration.module.css';
 
 import RegistrationForm from './RegistrationForm/RegistrationForm';
@@ -19,19 +18,18 @@ const Registration = (props) => {
       dispatch(resetSuccessMessage());
    }, []);
 
-   const onSubmit = (data) => {
+   const handleSubmit = (data) => {
       dispatch(signUp(data));
    }
 
    return (
       <div className={s.block}>
          <h1 className={cn('main-title')}>Регистрация</h1>
-         <RegistrationForm submit={onSubmit}
+         <RegistrationForm submit={handleSubmit}
             isSubmitting={isSubmitting} />
          {successMessage &&
             <p className={s.message}>{successMessage}</p>
          }
-
       </div>
    );
 }
