@@ -1,20 +1,18 @@
 import * as axios from 'axios';
 
 const instance = axios.create({
-   baseURL: 'https://petstore.swagger.io/v2/',
+   baseURL: 'https://reqres.in/api/',
 });
 
 const serverAPI = {
-   getUserDataRequest: (username) => {
-      return instance.get(`user/${username}`)
-         .then(response => response)
-         .catch(error => error);
+   getUserDataRequest: (userId) => {
+      return instance.get(`users/${userId}`)
+         .then(response => response.data)
    },
    signUpRequest: (data) => {
-      const body = { id: 0, ...data };
-      return instance.post('user', { body })
+      return instance.post('users', data)
          .then(response => response.data)
-   }
+   },
 }
 
 
