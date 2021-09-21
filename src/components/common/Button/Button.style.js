@@ -1,4 +1,6 @@
-.block {
+import styled from "styled-components";
+
+const Button = styled.button`
    width: 255px;
    height: 60px;
    border-radius: 10px;
@@ -9,6 +11,7 @@
    background: #B12341;
    color: #FFFFFF;
    cursor: pointer;
+
    &:hover {
       background: lighten($color: #B12341, $amount: 10);
    }
@@ -16,12 +19,15 @@
    &[disabled] {
       border: 1px solid #999999;
       background: #cccccc;
-      color: #666666;
-}
-}
-
-@media screen and (max-width: 768px) {
-   .block {
-      width: 100%;
+         color: #666666;
    }
-}
+
+   @media screen and (max-width: 768px) {
+      & {
+         width: 100%;
+      }
+   }
+`;
+
+
+export default Button;

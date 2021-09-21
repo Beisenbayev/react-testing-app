@@ -1,28 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import cn from 'classnames';
-import s from './Home.module.css';
 
-import Button from '../common/Button/Button';
-import BackgroundImage from '../common/BackgroundImage/BackgroundImage';
+import MainTitle from '../../styles/MainTitle.style.js';
+import {
+   StyledHome, HomeContent, HomeText, HomeButtons
+} from './Home.style.js';
+
+import Button from '../common/Button/Button.style.js';
+import BgImg from '../common/BgImg/BgImg.style.js';
 
 const Home = (props) => {
    return (
-      <div className={s.block}>
-         <div className={s.content}>
-            <h1 className={cn('main-title')}>Тестовое задание для Front-end Junior разработчика</h1>
-            <p>Реши задачу и устройся на работу в компанию KMF</p>
-            <div className={s.buttons}>
+      <StyledHome>
+         <HomeContent>
+            <MainTitle>Тестовое задание для Front-end Junior разработчика</MainTitle>
+            <HomeText>Реши задачу и устройся на работу в компанию KMF</HomeText>
+            <HomeButtons>
                <NavLink to={'/signup'}>
-                  <Button text={'Регистрация'} />
+                  <Button>Регистрация</Button>
                </NavLink>
                <NavLink to={'/search'}>
-                  <Button text={'Поиск по логину'} />
+                  <Button>Поиск по логину</Button>
                </NavLink>
-            </div>
-         </div>
-         <BackgroundImage />
-      </div>
+            </HomeButtons>
+         </HomeContent>
+         <BgImg />
+      </StyledHome>
    );
 }
 

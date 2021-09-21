@@ -8,8 +8,11 @@ import {
    signUpThunkCreater as signUp,
    resetSuccessMessageThunkCreater as resetSuccessMessage
 } from '../../redux/reducers/registration-reducer.js';
-import cn from 'classnames';
-import s from './Registration.module.css';
+
+import MainTitle from '../../styles/MainTitle.style.js';
+import {
+   StyledRegistration, RegistrationMessage
+} from './Registration.style.js';
 
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 
@@ -27,14 +30,14 @@ const Registration = (props) => {
    }
 
    return (
-      <div className={s.block}>
-         <h1 className={cn('main-title')}>Регистрация</h1>
+      <StyledRegistration>
+         <MainTitle>Регистрация</MainTitle>
          <RegistrationForm submit={handleSubmit}
             isSubmitting={isSubmitting} />
          {successMessage &&
-            <p className={s.message}>{successMessage}</p>
+            <RegistrationMessage>{successMessage}</RegistrationMessage>
          }
-      </div>
+      </StyledRegistration>
    );
 }
 

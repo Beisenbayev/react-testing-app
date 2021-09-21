@@ -1,15 +1,16 @@
 import React from 'react';
-import cn from 'classnames';
-import s from './Search.module.css';
+
+import MainTitle from '../../styles/MainTitle.style.js';
+import { StyledSearch } from './Search.style.js';
 
 import SearchForm from './SearchForm/SearchForm';
 
 const Search = (props) => {
    return (
-      <div className={s.block}>
-         <h1 className={cn(s.title, 'main-title')}>Поиск данных</h1>
+      <StyledSearch>
+         <MainTitle>Поиск данных</MainTitle>
          <SearchForm />
-      </div>
+      </StyledSearch>
    );
 }
 

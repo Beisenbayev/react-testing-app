@@ -1,13 +1,15 @@
-.block {
+import styled from "styled-components";
+
+export const StyledRegistration = styled.div`
    max-width: 665px;
    margin: 0 auto;
 
    h1 {
       margin-bottom: 30px;
    }
-}
+`;
 
-.message {
+export const RegistrationMessage = styled.p`
    margin-top: 30px;
    padding: 15px 20px;
    border: 1px solid #c3e6cb;
@@ -16,4 +18,4 @@
    border-radius: 10px;
    background: #d4edda;
    color: #155724;
-}
+`;
