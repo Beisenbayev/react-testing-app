@@ -1,14 +1,13 @@
 import React from 'react';
-import s from './BackgroundImage.module.css';
 import bgImg from '../../../assets/images/bgImg.png';
 
-const BackgroundImage = (props) => {
+const BgImg = ({className, ...props}) => {
    return (
-      <div className={s.block}>
+      <div className={className}>
          <img src={bgImg} alt="" />
       </div>
    );
 }
 
 
-export default BackgroundImage;
+export default BgImg;

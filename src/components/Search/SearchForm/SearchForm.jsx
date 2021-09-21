@@ -1,10 +1,11 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import { useHistory } from 'react-router-dom';
-import s from './SearchForm.module.css';
 
-import { MyInput } from '../../common/FormElements/FormElements';
-import Button from '../../common/Button/Button';
+import { StyledSearchForm } from './SearchForm.style.js';
+
+import MyInput from '../../common/FormElements/Input/MyInput';
+import Button from '../../common/Button/Button.style.js';
 
 const SearchForm = (props) => {
    const history = useHistory();
@@ -15,14 +16,13 @@ const SearchForm = (props) => {
             history.push(`/user/${term}`);
          }}>
          {formik =>
-            <Form className={s.block}>
+            <StyledSearchForm>
                <MyInput name={'term'}
                   label={'Введите id'}
                   type={'text'} />
                <Button type={'submit'}
-                  text={'Поиск'}
-                  disabled={formik.values.term === ''} />
-            </Form>
+                  disabled={formik.values.term === ''}>Поиск</Button>
+            </StyledSearchForm>
          }
       </Formik>
    );

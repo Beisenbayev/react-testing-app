@@ -8,11 +8,12 @@ import {
 import {
    setUserDataThunkCreater as setUserData,
 } from '../../redux/reducers/user-reducer.js';
-import cn from 'classnames';
-import s from './User.module.css';
 
-import Preloader from '../common/Preloader/Preloader';
-import Button from '../common/Button/Button';
+import MainTitle from '../../styles/MainTitle.style.js';
+import { StyledUser, UserData, UserErrorText } from './User.style.js';
+
+import Preloader from '../common/Preloader/Preloader.style.js';
+import Button from '../common/Button/Button.style.js';
 import UserDataLine from './UserDataLine/UserDataLine';
 
 const User = (props) => {
@@ -42,18 +43,18 @@ const User = (props) => {
    if (isFetching) return <Preloader />
 
    return (
-      <div className={s.block}>
-         <h1 className={cn(s.title, 'main-title')}>Поиск данных</h1>
+      <StyledUser>
+         <MainTitle>Поиск данных</MainTitle>
          {userData ?
-            <div className={s.userData}>
+            <UserData>
                {userData}
-            </div> :
-            <p className={s.errorText}>user not found</p>
+            </UserData> :
+            <UserErrorText>user not found</UserErrorText>
          }
          <NavLink to={'/'}>
-            <Button text={'На главную'} />
+            <Button>На главную</Button>
          </NavLink>
-      </div>
+      </StyledUser>
    );
 }
 

@@ -1,10 +1,11 @@
 import React from 'react';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
-import s from './RegistrationForm.module.css';
 
-import { MyInput } from '../../common/FormElements/FormElements';
-import Button from '../../common/Button/Button';
+import { StyledRegistrationForm } from './RegistrationForm.style.js'
+
+import MyInput from '../../common/FormElements/Input/MyInput';
+import Button from '../../common/Button/Button.style.js'
 
 const RegistrationForm = (props) => {
    return (
@@ -24,7 +25,7 @@ const RegistrationForm = (props) => {
             setSubmitting(false);
             resetForm();
          }}>
-         <Form className={s.block}>
+         <StyledRegistrationForm>
             <MyInput name={'name'}
                label={'Имя'}
                type={'text'} />
@@ -32,9 +33,8 @@ const RegistrationForm = (props) => {
                label={'Работа'}
                type={'text'} />
             <Button type={'submit'}
-               text={'Регистрация'}
-               disabled={props.isSubmitting} />
-         </Form>
+               disabled={props.isSubmitting}>Регистрация</Button>
+         </StyledRegistrationForm>
       </Formik>
    );
 }
