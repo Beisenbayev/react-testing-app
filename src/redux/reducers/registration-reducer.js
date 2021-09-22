@@ -1,6 +1,9 @@
+import { call, put } from 'redux-saga/effects';
 import serverAPI from '../../api/api.js';
 
 const registrationReducerId = 'sign-up/registrationReducer';
+export const SIGN_UP = `${registrationReducerId}/SIGN_UP`;
+export const CLEAR_SUCCESS_MESSAGE = `${registrationReducerId}/CLEAR_SUCCESS_MESSAGE`;
 const SET_SUCCESS_MESSAGE = `${registrationReducerId}/SET_SUCCESS_MESSAGE`;
 const TOGGLE_IS_SUBMITTING = `${registrationReducerId}/TOGGLE_IS_SUBMITTING`;
 
@@ -21,22 +24,20 @@ const registrationReducer = (state = initialState, action) => {
    }
 }
 
+export const signUpAC = (data) => ({ type: SIGN_UP, data });
+export const clearSuccessMessageAC = () => ({ type: CLEAR_SUCCESS_MESSAGE });
 const setSuccessMessageAC = (successMessage) => ({ type: SET_SUCCESS_MESSAGE, successMessage });
 const toggleIsSubmittingAC = (isSubmitting) => ({ type: TOGGLE_IS_SUBMITTING, isSubmitting });
 
-export const signUpThunkCreater = (data) => {
-   return async (dispatch) => {
-      dispatch(toggleIsSubmittingAC(true));
-      const response = await serverAPI.signUpRequest(data);
-      dispatch(setSuccessMessageAC(`User [${response.name}] with id [${response.id}] was created successfully!`))
-      dispatch(toggleIsSubmittingAC(false));
-   }
+export function* handleSignUp(action) {
+   yield put(toggleIsSubmittingAC(true));
+   const response = yield call(serverAPI.signUpRequest, action.data);
+   yield put(setSuccessMessageAC(`User [${response.name}] with id [${response.id}] was created successfully!`));
+   yield put(toggleIsSubmittingAC(false));
 }
 
-export const resetSuccessMessageThunkCreater = () => {
-   return (dispatch) => {
-      dispatch(setSuccessMessageAC(null));
-   }
+export function* handleClearSuccessMessage(action) {
+   yield put(setSuccessMessageAC(null));
 }
 
 
