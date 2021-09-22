@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useParams } from 'react-router-dom';
 import {
    getUserDataSelector,
    getIsFetchingSelector
 } from '../../redux/selectors/user-selector.js';
 import {
-   setUserDataThunkCreater as setUserData,
+   getUserDataAC as getUserData,
 } from '../../redux/reducers/user-reducer.js';
 
 import MainTitle from '../../styles/MainTitle.style.js';
@@ -25,7 +25,7 @@ const User = (props) => {
    const { userId } = useParams();
 
    useEffect(() => {
-      dispatch(setUserData(userId));
+      dispatch(getUserData(userId));
    }, [userId]);
 
    const userDataTitles = {

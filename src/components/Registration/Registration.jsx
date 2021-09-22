@@ -5,8 +5,8 @@ import {
    getIsSubmittingSelector
 } from '../../redux/selectors/registration-selector.js';
 import {
-   signUpThunkCreater as signUp,
-   resetSuccessMessageThunkCreater as resetSuccessMessage
+   signUpAC as signUp,
+   clearSuccessMessageAC as clearSuccessMessage
 } from '../../redux/reducers/registration-reducer.js';
 
 import MainTitle from '../../styles/MainTitle.style.js';
@@ -23,7 +23,7 @@ const Registration = (props) => {
    const isSubmitting = useSelector(state => getIsSubmittingSelector(state));
 
    useEffect(() => {
-      dispatch(resetSuccessMessage());
+      dispatch(clearSuccessMessage());
    }, []);
 
    const handleSubmit = (data) => {
