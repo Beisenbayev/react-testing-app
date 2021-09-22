@@ -13,11 +13,11 @@ export const StyledLabel = styled.label`
 `;
 
 export const StyledInput = styled.input`
-   border: 1px solid ${props => props.hasError ? '#ac5454' : '#EDEDED'};
-   border-radius: 10px;
-   width: 325px;
+   width: 100%;
    height: 60px;
    padding: 10px;
+   border: 1px solid ${props => props.hasError ? '#ac5454' : '#EDEDED'};
+   border-radius: 10px;
    font-size: 18px;
    background: #FFFFFF;
    color: #303030;

@@ -13,7 +13,7 @@ const Button = styled.button`
    cursor: pointer;
 
    &:hover {
-      background: lighten($color: #B12341, $amount: 10);
+      background: #C13451;
    }
    &:disabled,
    &[disabled] {

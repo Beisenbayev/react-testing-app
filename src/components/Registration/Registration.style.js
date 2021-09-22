@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledRegistration = styled.div`
-   max-width: 665px;
    margin: 0 auto;
 
    h1 {

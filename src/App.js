@@ -1,5 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import useTheme from './hook/useTheme';
+import { LightTheme, DarkTheme } from './config/theme.js';
 
 import GlobalStyles from './styles/GlobalStyles.js';
 import StyledApp from './App.style.js';
@@ -10,17 +13,24 @@ import Search from './components/Search/Search';
 import User from './components/User/User';
 
 const App = () => {
+  const [themeType, toggleTheme] = useTheme();
+  const theme = themeType === 'light' ? LightTheme : DarkTheme;
+
   return (
     <React.Fragment>
-      <GlobalStyles />
-      <StyledApp>
-        <Switch>
-          <Route path='/signup' render={() => <Registration />} />
-          <Route path='/search' render={() => <Search />} />
-          <Route path='/user/:userId?' render={() => <User />} />
-          <Route exact path='/' render={() => <Home />} />
-        </Switch>
-      </StyledApp>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <StyledApp>
+          <Switch>
+            <Route path='/signup' render={() => <Registration />} />
+            <Route path='/search' render={() => <Search />} />
+            <Route path='/user/:userId?' render={() => <User />} />
+            <Route exact path='/' render={() =>
+              <Home checked={themeType === 'dark'}
+                toggleTheme={toggleTheme} />} />
+          </Switch>
+        </StyledApp>
+      </ThemeProvider>
     </React.Fragment>
   );
 }

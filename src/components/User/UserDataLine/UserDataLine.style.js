@@ -14,5 +14,5 @@ export const UserDataTitle = styled.h3`
 
 export const UserDataText = styled.p`
    font-weight: bold;
-   color: #303030;
+   color: ${props => props.theme.title};
 `;

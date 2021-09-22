@@ -13,7 +13,7 @@ const StyledApp = styled.div`
 
    @media screen and (max-width: 768px) {
       & {
-         padding: 20px 15px 15px;
+         padding: 20px 5px 15px;
       }
    }
 `;

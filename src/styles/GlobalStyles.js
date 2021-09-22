@@ -13,7 +13,8 @@ const GlobalStyles = createGlobalStyle`
       font-weight: normal;
       font-size: 24px;
       line-height: 120%;
-      background: #fff;
+      background: ${props => props.theme.body};
+      color: ${props => props.theme.text};
       user-select: none;
    }
    a { text-decoration: none; }

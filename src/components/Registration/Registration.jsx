@@ -14,6 +14,7 @@ import {
    StyledRegistration, RegistrationMessage
 } from './Registration.style.js';
 
+import Wrapper from '../common/Wrapper/Wrapper.style.js';
 import RegistrationForm from './RegistrationForm/RegistrationForm';
 
 const Registration = (props) => {
@@ -30,14 +31,16 @@ const Registration = (props) => {
    }
 
    return (
-      <StyledRegistration>
-         <MainTitle>Регистрация</MainTitle>
-         <RegistrationForm submit={handleSubmit}
-            isSubmitting={isSubmitting} />
-         {successMessage &&
-            <RegistrationMessage>{successMessage}</RegistrationMessage>
-         }
-      </StyledRegistration>
+      <Wrapper>
+         <StyledRegistration>
+            <MainTitle>Регистрация</MainTitle>
+            <RegistrationForm submit={handleSubmit}
+               isSubmitting={isSubmitting} />
+            {successMessage &&
+               <RegistrationMessage>{successMessage}</RegistrationMessage>
+            }
+         </StyledRegistration>
+      </Wrapper>
    );
 }
 

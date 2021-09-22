@@ -3,7 +3,7 @@ import { Form } from "formik";
 
 export const StyledRegistrationForm = styled(Form)`
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: 325px 325px;
    grid-row-gap: 15px;
    grid-column-gap: 30px;
 

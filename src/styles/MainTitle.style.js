@@ -5,7 +5,7 @@ const MainTitle = styled.h1`
 	font-size: 36px;
 	line-height: 43.2px;
 	letter-spacing: -0.025em;
-	color: #000;
+	color: ${props => props.theme.title};
 
    @media screen and (max-width: 992px) {
       & {

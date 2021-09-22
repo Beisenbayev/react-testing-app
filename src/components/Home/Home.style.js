@@ -9,14 +9,20 @@ export const StyledHome = styled.div`
    margin: 0 auto;
 
    @media screen and (max-width: 992px) {
-   & {
-      display: grid;
-      grid-template-areas: 'bgImg' 'content';
-      grid-template-columns: 1fr;
-      grid-column-gap: 20px;
-      align-items: center;
+      & {
+         display: grid;
+         grid-template-areas: 'bgImg' 'content';
+         grid-template-columns: 1fr;
+         grid-column-gap: 20px;
+         align-items: center;
+      }
    }
-}
+
+   @media screen and (max-width: 768px) {
+      & {
+         padding-top: 30px;
+      }
+   }
 `;
 
 export const HomeContent = styled.div`

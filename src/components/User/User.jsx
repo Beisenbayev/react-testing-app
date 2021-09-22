@@ -12,6 +12,7 @@ import {
 import MainTitle from '../../styles/MainTitle.style.js';
 import { StyledUser, UserData, UserErrorText } from './User.style.js';
 
+import Wrapper from '../common/Wrapper/Wrapper.style.js';
 import Preloader from '../common/Preloader/Preloader.style.js';
 import Button from '../common/Button/Button.style.js';
 import UserDataLine from './UserDataLine/UserDataLine';
@@ -43,18 +44,20 @@ const User = (props) => {
    if (isFetching) return <Preloader />
 
    return (
-      <StyledUser>
-         <MainTitle>Поиск данных</MainTitle>
-         {userData ?
-            <UserData>
-               {userData}
-            </UserData> :
-            <UserErrorText>user not found</UserErrorText>
-         }
-         <NavLink to={'/'}>
-            <Button>На главную</Button>
-         </NavLink>
-      </StyledUser>
+      <Wrapper>
+         <StyledUser>
+            <MainTitle>Поиск данных</MainTitle>
+            {userData ?
+               <UserData>
+                  {userData}
+               </UserData> :
+               <UserErrorText>user not found</UserErrorText>
+            }
+            <NavLink to={'/'}>
+               <Button>На главную</Button>
+            </NavLink>
+         </StyledUser>
+      </Wrapper>
    );
 }
 
