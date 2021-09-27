@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import MetaDeclaration from '../../utils/metaDeclaration';
 import {
    getSuccessMessageSelector,
    getIsSubmittingSelector
@@ -33,6 +34,7 @@ const Registration = (props) => {
    return (
       <Wrapper>
          <StyledRegistration>
+            <MetaDeclaration title={'Registration'} />
             <MainTitle>Регистрация</MainTitle>
             <RegistrationForm submit={handleSubmit}
                isSubmitting={isSubmitting} />
