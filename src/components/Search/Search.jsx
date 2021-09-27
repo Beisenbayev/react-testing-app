@@ -1,4 +1,5 @@
 import React from 'react';
+import MetaDeclaration from '../../utils/metaDeclaration';
 
 import MainTitle from '../../styles/MainTitle.style.js';
 import { StyledSearch } from './Search.style.js';
@@ -10,6 +11,7 @@ const Search = (props) => {
    return (
       <Wrapper>
          <StyledSearch>
+            <MetaDeclaration title={'Search'} />
             <MainTitle>Поиск данных</MainTitle>
             <SearchForm />
          </StyledSearch>

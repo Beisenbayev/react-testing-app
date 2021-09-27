@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import MetaDeclaration from '../../utils/metaDeclaration';
 
 import MainTitle from '../../styles/MainTitle.style.js';
 import {
@@ -15,6 +16,7 @@ const Home = (props) => {
    return (
       <Wrapper>
          <StyledHome>
+            <MetaDeclaration title={'Home'} />
             <HomeContent>
                <MainTitle>Тестовое задание для Front-end Junior разработчика</MainTitle>
                <HomeText>Реши задачу и устройся на работу в компанию KMF</HomeText>

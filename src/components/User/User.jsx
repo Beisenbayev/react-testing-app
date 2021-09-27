@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
+import MetaDeclaration from '../../utils/metaDeclaration';
 import {
    getUserDataSelector,
    getIsFetchingSelector
@@ -46,6 +47,7 @@ const User = (props) => {
    return (
       <Wrapper>
          <StyledUser>
+            <MetaDeclaration title={'User'} />
             <MainTitle>Поиск данных</MainTitle>
             {userData ?
                <UserData>
